@@ -10,10 +10,10 @@ namespace TigerForge
 {
     public class UniRESTClientConfig
     {
-        public static string Key1 = "eARPb9zcPiSuATwjigC5iE0s5iziDaaq";
-        public static string Key2 = "xIR5dZeo15a6CCDl";
-        public static string AppID = "dZeo";
-        public static string ServerUrl = "http://test.local/UNIREST/";
+        public static string Key1 = "hE16iPFIewl9eLrc9bFmJisUbxIeeIhy";
+        public static string Key2 = "H0JROpbM2l11Z9zW";
+        public static string AppID = "OpbM";
+        public static string ServerUrl = "http://shaktisocialmedia.local/UNIREST/";
     }
     public static class API
     {
