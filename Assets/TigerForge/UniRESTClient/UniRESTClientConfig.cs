@@ -10,22 +10,28 @@ namespace TigerForge
 {
     public class UniRESTClientConfig
     {
-        public static string Key1 = "hE16iPFIewl9eLrc9bFmJisUbxIeeIhy";
-        public static string Key2 = "H0JROpbM2l11Z9zW";
-        public static string AppID = "OpbM";
-        public static string ServerUrl = "http://shaktisocialmedia.local/UNIREST/";
+        public static string Key1 = "kmtjN1wVlm7iMgaTqUadN0OgMwPB5R46";
+        public static string Key2 = "RHncfGgh6GYIcoNQ";
+        public static string AppID = "fGgh";
+        public static string ServerUrl = "https://indocoshaktiforher.com/UNIREST/";
     }
     public static class API
     {
+        public static string data_emp_data = "data/emp_data/";
     }
     [System.Serializable]
     public static class DB
     {
         [System.Serializable]
-        public class Photos
+        public class Details
         {
             public int id = 0;
-            public string Name = "";
+            public string division = "";
+            public string emp_code = "";
+            public string emp_name = "";
+            public string designation = "";
+            public string email_Id = "";
+            public int contact_no = 0;
         }
 
         [System.Serializable]

@@ -161,6 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
+    Android: com.DefaultCompany.TigerForgeTest
     Standalone: com.DefaultCompany.TigerForgeTest
   buildNumber:
     Standalone: 0
@@ -835,23 +836,23 @@ PlayerSettings:
   webGLMemoryGeometricGrowthCap: 96
   webGLPowerPreference: 2
   scriptingDefineSymbols:
-    Android: DOTWEEN
-    EmbeddedLinux: DOTWEEN
-    GameCoreScarlett: DOTWEEN
-    GameCoreXboxOne: DOTWEEN
-    LinuxHeadlessSimulation: DOTWEEN
-    Nintendo Switch: DOTWEEN
-    PS4: DOTWEEN
-    PS5: DOTWEEN
-    QNX: DOTWEEN
-    Stadia: DOTWEEN
-    Standalone: PUBLISHING_TOOLS_ASSET_STORE_RELEASE;PROCEDURAL_UI_ASSET_STORE_RELEASE;DOTWEEN
-    VisionOS: DOTWEEN
-    WebGL: DOTWEEN;PROCEDURAL_UI_ASSET_STORE_RELEASE;PUBLISHING_TOOLS_ASSET_STORE_RELEASE
-    Windows Store Apps: DOTWEEN
-    XboxOne: DOTWEEN
-    iPhone: DOTWEEN
-    tvOS: DOTWEEN
+    Android: DOTWEEN;FG_WEBGLFB
+    EmbeddedLinux: DOTWEEN;FG_WEBGLFB
+    GameCoreScarlett: DOTWEEN;FG_WEBGLFB
+    GameCoreXboxOne: DOTWEEN;FG_WEBGLFB
+    LinuxHeadlessSimulation: DOTWEEN;FG_WEBGLFB
+    Nintendo Switch: DOTWEEN;FG_WEBGLFB
+    PS4: DOTWEEN;FG_WEBGLFB
+    PS5: DOTWEEN;FG_WEBGLFB
+    QNX: DOTWEEN;FG_WEBGLFB
+    Stadia: DOTWEEN;FG_WEBGLFB
+    Standalone: PUBLISHING_TOOLS_ASSET_STORE_RELEASE;PROCEDURAL_UI_ASSET_STORE_RELEASE;DOTWEEN;FG_WEBGLFB
+    VisionOS: DOTWEEN;FG_WEBGLFB
+    WebGL: DOTWEEN;PROCEDURAL_UI_ASSET_STORE_RELEASE;PUBLISHING_TOOLS_ASSET_STORE_RELEASE;FG_WEBGLFB
+    Windows Store Apps: DOTWEEN;FG_WEBGLFB
+    XboxOne: DOTWEEN;FG_WEBGLFB
+    iPhone: DOTWEEN;FG_WEBGLFB
+    tvOS: DOTWEEN;FG_WEBGLFB
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend: {}
