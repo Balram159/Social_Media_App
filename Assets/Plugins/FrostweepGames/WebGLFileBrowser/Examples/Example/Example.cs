@@ -24,7 +24,14 @@ namespace FrostweepGames.Plugins.WebGLFileBrowser.Examples
 
         private string _enteredFileExtensions;
 
-        private File[] _loadedFiles;
+        public File[] _loadedFiles;
+        public static string filePath;
+
+        public static Example instance;
+        //private void Awake()
+        //{
+        //    instance = this;
+        //}
 
         private void Start()
         {
@@ -119,7 +126,8 @@ namespace FrostweepGames.Plugins.WebGLFileBrowser.Examples
 
                 foreach (var loadedFile in _loadedFiles)
                 {
-                    fileInfoText.text += $"Name: {loadedFile.fileInfo.name}.{loadedFile.fileInfo.extension}, Size: {loadedFile.fileInfo.SizeToString()}\n";
+                    filePath = loadedFile.fileInfo.path;
+                    fileInfoText.text += $"Name: {loadedFile.fileInfo.name}.{loadedFile.fileInfo.extension} {loadedFile.fileInfo.path}, Size: {loadedFile.fileInfo.SizeToString()}\n";
                 }
 
                 saveOpenedFileButton.gameObject.SetActive(true);

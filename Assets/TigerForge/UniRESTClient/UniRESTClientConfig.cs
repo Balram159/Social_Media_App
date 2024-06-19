@@ -18,12 +18,30 @@ namespace TigerForge
     public static class API
     {
         public static string data_emp_data = "data/emp_data/";
+        public static string data_write_doc = "data/write_doc/";
     }
     [System.Serializable]
     public static class DB
     {
         [System.Serializable]
-        public class Details
+        public class Emp_and_doctor_details
+        {
+            public int id = 0;
+            public string emp_name = "";
+            public string emp_code = "";
+            public string emp_contact = "";
+            public string emp_email = "";
+            public string doctor_name = "";
+            public string doctor_qualification = "";
+            public string doctor_city = "";
+            public string doctor_state = "";
+            public string doctor_emailID = "";
+            public string video_url = "";
+            public string image_url = "";
+        }
+
+        [System.Serializable]
+        public class Employee_details
         {
             public int id = 0;
             public string division = "";

@@ -1,17 +1,18 @@
 using UnityEngine;
 using TigerForge;
+using FrostweepGames.Plugins.WebGLFileBrowser.Examples;
+using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class UploadDataToServer : MonoBehaviour
 {
     // Start is called before the first frame update
+    public Slider uploadSlider;
+    public static bool videoUploadDone;
+    public UnityEvent OnVideoUpload;
     void Start()
     {
         UniRESTClient.debugMode = true;
-        //_ = UniRESTClient.Async.ApplicationLogin((result) =>
-        //{
-
-        //});
-        UserLogin();
     }
 
     [ContextMenu("Download File")]
@@ -24,22 +25,28 @@ public class UploadDataToServer : MonoBehaviour
         myDownloadInstance.onErrorCallBack = OnDownloadError;
     }
 
-    [ContextMenu("Upload File")]
-    public void UploadFile()
+    [ContextMenu("Upload Image File")]
+    public void UploadImageFile()
     {
         var myUploadInstance = new UniRESTClient.Upload();
-        myUploadInstance.ToGame("Users\\aanandkumar\\Downloads\\Social_Media_App-main\\Assets\\img2.jpg", "Tfolder");
+        Debug.Log("Image Path"+ImageFileBrower.imagefilePath);
+        
+        myUploadInstance.ToGame(ImageFileBrower.imagefilePath, "Tfolder");
+        
         myUploadInstance.Start();
-        myUploadInstance.onCompleteCallBack = OnUploadFinished;
+        myUploadInstance.onCompleteCallBack = OnImageUploadFinished;
         Debug.Log("Uploaded At: " + myUploadInstance.status.currentFileURL);
     }
 
-    void UserLogin()
+    [ContextMenu("Upload Video File")]
+    public void UploadVideoFile()
     {
-        _ = UniRESTClient.Async.Login("test7188", "pass1447", (bool ok) =>
-        {
-            if (ok) Debug.Log(UniRESTClient.userAccount.username + " LOGGED IN!"); else Debug.Log("ERROR: " + UniRESTClient.ServerError);
-        });
+        var myUploadInstance = new UniRESTClient.Upload();
+        Debug.Log("Video Path" + VideoFileBrower.videofilePath);
+        myUploadInstance.ToGame(VideoFileBrower.videofilePath, "Tfolder");
+        myUploadInstance.Start();
+        myUploadInstance.onProgessCallBack = OnUploadProgress;
+        myUploadInstance.onCompleteCallBack = OnVideoUploadFinished;
     }
 
     void OnDownloadFinished(UniRESTClient.Download.Status s)
@@ -52,9 +59,24 @@ public class UploadDataToServer : MonoBehaviour
         Debug.Log("Download Error");
     }
 
-    void OnUploadFinished(UniRESTClient.Upload.Status s)
+    void OnImageUploadFinished(UniRESTClient.Upload.Status s)
     {
-        Debug.Log("Upload Finished");
+        Debug.Log("Image URL " + s.currentDestionationFile);
+        AppManager.imgURL = s.currentDestionationFile;
+        Debug.Log("Image Upload Finished");
 
+    }
+    void OnVideoUploadFinished(UniRESTClient.Upload.Status s)
+    {
+        OnVideoUpload.Invoke();
+        videoUploadDone = true;
+        Debug.Log("Video URL " + s.currentDestionationFile);
+        AppManager.videoURL = s.currentDestionationFile;
+        Debug.Log("Video Upload Finished");
+    }
+
+    void OnUploadProgress(UniRESTClient.Upload.Status s)
+    {
+        uploadSlider.value = s.totalProgress;
     }
 }
